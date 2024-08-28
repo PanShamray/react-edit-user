@@ -3,20 +3,27 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import EditUser from "./pages/EditUser/EditUser"
 import Users from "./pages/Users/Users";
 
+import "./App.scss";
+
 function App() {
   return (
     <Router>
       <div>
-        <button>
-          <Link to="/edit-user">Edit User</Link>
-        </button>
-        <button>
-          <Link to="/">Users</Link>
-        </button>
+        <header className="header">
+          <nav>
+            <Link to="/">
+              <button className="editUserButton">Edit Users</button>
+            </Link>
+
+            <Link to="/users">
+              <button className="usersButton">Users</button>
+            </Link>
+          </nav>
+        </header>
 
         <Routes>
-          <Route path="/" element={<Users />} />
-          <Route path="/edit-user" element={<EditUser />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/" element={<EditUser />} />
         </Routes>
       </div>
     </Router>
