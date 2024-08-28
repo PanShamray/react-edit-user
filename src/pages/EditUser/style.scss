@@ -1,96 +1,117 @@
-main{
-    margin: 80px 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border: 1px solid black;
+main {
+  margin: 80px 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid black;
 
-        h1{
-            font-family: "Karla", sans-serif;
-            font-weight: 500;
-            font-size: 24px;
-            line-height: 32px;
-            letter-spacing: 6px;
-            margin: 60px 0 80px;
+  h1 {
+    font-family: "Karla", sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 6px;
+    margin: 60px 0 80px;
+  }
+
+  section {
+    display: block;
+    width: 900px;
+    margin: 0 80px;
+
+    .css-1dimb5e-singleValue,
+    .selectDefaultStyle,
+    .userName_input,
+    h4 {
+      font-family: "Rubik", sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.2px;
+      color: #5e626b;
+    }
+
+    .css-1dimb5e-singleValue {
+      padding: 0 10px;
+    }
+
+    .css-13cymwt-control {
+      border-radius: 0;
+      border: 1px solid #e3e8ee;
+    }
+
+    .css-1u9des2-indicatorSeparator {
+      width: 0;
+      
+    }
+
+    .selectDefaultStyle {
+      width: 400px;
+    }
+
+    .userName_input {
+      width: 360px;
+      padding: 8px 19px;
+      margin: 0;
+      border: 1px solid #e3e8ee;
+    }
+
+    h4 {
+      width: 400px;
+      margin: 0 0 4px;
+    }
+
+    .userInfo {
+      margin-bottom: 80px;
+
+      h3 {
+        font-family: "Rubik", sans-serif;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 32px;
+        letter-spacing: 0.2px;
+        margin: 60px 0 40px;
+      }
+
+      .nameAndDepartment,
+      .countryAndStatus {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 40px;
+      }
+    }
+
+    .undoAndSave {
+      margin-bottom: 80px;
+      display: flex;
+      justify-content: flex-end;
+
+      .undoButton,
+      .saveButton {
+        height: 48px;
+        border: 1px solid #c4c4c4;
+        background-color: white;
+        font-family: "Rubik", sans-serif;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.2px;
+        cursor: pointer;
+      }
+
+      .undoButton {
+        width: 100px;
+        margin-right: 20px;
+      }
+
+      .saveButton {
+        width: 200px;
+
+        &:disabled {
+          color: #c4c4c4;
         }
-        
-        section{
-            display: block;
-            width: 900px;
-            margin: 0 80px;
-
-                h4, p{
-                    width: 400px;
-                    font-family: "Rubik", sans-serif;
-                    font-weight: 400;
-                    font-size: 14px;
-                    line-height: 20px;
-                    letter-spacing: 0.2px;
-                    color: #5E626B;
-                }
-                h4{
-                    margin: 0 0 4px;
-                }
-                p{
-                    border: 1px solid #E3E8EE;
-                    padding: 8px 12px;
-                    margin: 0;
-                }
-
-                .userInfo{
-                    margin-bottom: 80px;
-                    h3{
-                        font-family: "Rubik", sans-serif;
-                        font-weight: 400;
-                        font-size: 20px;
-                        line-height: 32px;
-                        letter-spacing: 0.2px;
-
-                        margin: 60px 0 40px;
-                    }
-
-                    .nameAndDepartment{
-                        display: flex;
-                        justify-content: space-between;
-                        margin-bottom: 40px;
-                    }
-
-                    .countryAndStatus{
-                        display: flex;
-                        justify-content: space-between;
-                    }
-                }
-
-                .undoAndSave{
-                    margin-bottom: 80px;
-                    display: flex;
-                    justify-content: flex-end;
-
-                    .undoButton, .saveButton{
-                        height: 48px;
-                        border: 1px solid #C4C4C4;
-                        background-color: white;
-                        font-family: "Rubik", sans-serif;
-                        font-weight: 300;
-                        font-size: 14px;
-                        line-height: 20px;
-                        letter-spacing: 0.2px;
-                        cursor: pointer;
-                    }
-
-                    .undoButton{
-                        width: 100px;
-                        margin-right: 20px;
-                    }
-                    .saveButton{
-                        width: 200px;
-                        
-
-                        &:disabled{
-                            color:#C4C4C4;
-                        }
-                    }
-                }
-        }
+      }
+    }
+  }
 }
