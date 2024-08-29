@@ -50,9 +50,9 @@ function Users() {
     setAddUserModalOpen(true);
   };
 
-  /* const closeAddUserModal = () => {
+  const closeAddUserModal = () => {
     setAddUserModalOpen(false);
-  } */
+  } 
 
   return (
     <main>
@@ -116,21 +116,28 @@ function Users() {
             </div>
           </div>
           <div className="users-block">
-            {filteredUsers.map((user) => (
-              <>
-                <div key={user.name}>
-                  <span>{user.name}</span>
-                  <span >{user.department.name}</span>
-                  <span >{user.country.name}</span>
-                  <span >{user.status.name}</span>
-                  <button
-                    onClick={() => handleUserDelete(user.name)}
-                    className="trashButton">
-                    <TrashButton />
-                  </button>
-                </div>
-              </>
-            ))}
+            <table>
+              <tbody>
+                {filteredUsers.map((user) => (
+                  <>
+                    <tr key={user.name}>
+                      <td className="tdName">{user.name}</td>
+                      <td className="tdDepartment">{user.department.name}</td>
+                      <td className="tdCountry">{user.country.name}</td>
+                      <td className='tdStatus'>{user.status.name}</td>
+                      <td>
+                        <button
+                          onClick={() => handleUserDelete(user.name)}
+                          className="trashButton"
+                        >
+                          <TrashButton />
+                        </button>
+                      </td>
+                    </tr>
+                  </>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>

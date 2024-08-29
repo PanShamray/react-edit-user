@@ -1,16 +1,10 @@
-@mixin Rubik300{
-    font-family: "Rubik", sans-serif;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0.2px;
+@mixin Rubik($weight){
+  font-family: "Rubik", sans-serif;
+  font-weight: $weight;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.2px;
 }
-
-@mixin Rubik400{
-    @include Rubik300();
-    font-weight: 400;
-}
-
 
 main{
   margin: 80px 100px;
@@ -20,111 +14,133 @@ main{
   flex-direction: column;
   border: 1px solid black;
 
-    h1 {
-        font-family: "Karla", sans-serif;
-        font-weight: 500;
-        font-size: 24px;
-        line-height: 32px;
-        letter-spacing: 6px;
-        margin: 60px 0 40px;
-    }
-    .filter_title{
-        align-self: self-start;
-        margin: 0;
-        margin-left: 74px;
-        margin-bottom: 12px;
-        @include Rubik300();
-        color: #1B2438;
-    }
-    section{
-        display: block;
-        width: 1000px;
-        margin: 0 74px;
-            
-            .filter_menu{
-                display: flex;
-                margin-bottom: 40px;
-                height: 48px;
-                    
-                    .filter_items{
-                        display: flex;
-                        width: 684px;
-                        gap: 12px;
-                        margin-right: 20px;
-                        .css-13cymwt-control{
-                            @include Rubik400;
-                            padding-left: 24px;
-                            color: #C2C2C2;
-                            height: 48px;
-                            cursor: pointer;
-                            width: 220px;
-                        }
-                        .css-16xfy0z-control{
-                            width: 220px;
-                            padding-left: 24px;
-                            background-color: white;
-                            border-radius: 0;
-                            @include Rubik400;
-                            color: #C2C2C2;
-                            height: 48px;
-                            &:active{
-                                cursor: pointer;
-                            }
+  h1 {
+    font-family: "Karla", sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 6px;
+    margin: 60px 0 40px;
+  }
 
-                        }
-                        .css-894a34-indicatorSeparator{
-                            width: 0;
-                        }
-                    }
+  .filter_title{
+    align-self: flex-start;
+    margin: 0 0 12px 74px;
+    @include Rubik(300);
+    color: #1B2438;
+  }
 
-                    .filter_buttons{
-                        min-height: 48px;
-                        width: 100%;
-                        display: flex;
-                        justify-content: space-between;
-                        .trashButton{
-                            border: none;
-                            cursor: pointer;
-                            margin: 0;
-                            padding: 0;
-                            width: 48px;
-                            height: 48px;
-                            background-color: white;
-                            border: 1px solid #C4C4C4;
-                        }
-                        .popupButton{
-                            width: 150px;
-                            height: 48px;
-                            border: 1px solid #C4C4C4;
-                            background-color: white;
-                            cursor: pointer;
-                            @include Rubik300;
-                        }
-                    }
-            }
-            .list-titles{
-                
-                height: 76px;
-                border: 1px solid #E3E8EE;
-                font-family: "Karla", sans-serif;
-                font-weight: 700;
-                font-size: 14px;
-                line-height: 20px;
-                letter-spacing: 0.4px;
-                    .titles{
-                        padding: 14px 113px 14px 36px;
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                    }
-            }
-            .users-block{
-                border: 1px solid #E3E8EE;
-                div{
-                    display: flex;
-                    justify-content: space-between;
-                }
-            }
-            
+  section{
+    display: block;
+    width: 1000px;
+    margin: 0 74px;
+
+    .filter_menu{
+      display: flex;
+      margin-bottom: 40px;
+      height: 48px;
+
+      .filter_items{
+        display: flex;
+        width: 684px;
+        gap: 12px;
+        margin-right: 20px;
+
+        .css-13cymwt-control, 
+        .css-16xfy0z-control{
+          @include Rubik(400);
+          padding-left: 24px;
+          height: 48px;
+          cursor: pointer;
+          color: #C2C2C2;
+        }
+
+        .css-13cymwt-control{
+          width: 220px;
+        }
+
+        .css-16xfy0z-control{
+          width: 220px;
+          background-color: white;
+          border-radius: 0;
+          &:active{
+            cursor: pointer;
+          }
+        }
+
+        .css-894a34-indicatorSeparator{
+          width: 0;
+        }
+      }
+
+      .filter_buttons{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        min-height: 48px;
+
+        .trashButton, 
+        .popupButton{
+          border: 1px solid #C4C4C4;
+          background-color: white;
+          cursor: pointer;
+        }
+
+        .trashButton{
+          width: 48px;
+          height: 48px;
+          margin: 0;
+          padding: 0;
+        }
+
+        .popupButton{
+          width: 150px;
+          height: 48px;
+          @include Rubik(300);
+        }
+      }
     }
+
+    .list-titles{
+      height: 76px;
+      border: 1px solid #E3E8EE;
+      font-family: "Karla", sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.4px;
+
+      .titles{
+        padding: 14px 194px 14px 36px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .users-block{
+      border: 1px solid #E3E8EE;
+
+      table{
+        width: 100%;
+
+        tr{
+          height: 80px;
+
+          .tdName{
+            width: 235px;
+            padding-left: 36px;
+          }
+
+          .tdDepartment{width: 250px;}
+        }
+      }
+
+      .trashButton{
+        border: none;
+        background-color: white;
+        cursor: pointer;
+      }
+    }
+  }
 }
