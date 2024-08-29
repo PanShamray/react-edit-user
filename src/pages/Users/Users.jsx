@@ -3,8 +3,10 @@ import Select from "react-select";
 import { users, departments, statuses, countries } from "../../data.js";
 import "./style.scss";
 import TrashButton from "../../components/TrashButton.jsx"
+import AddUserModal from '../../components/AddUserModal/AddUserModal.jsx';
 
 function Users() {
+  const [usersList, setUsersList] = useState(users);
   const [selectedDepartments, setSelectedDepartments] = useState([]);
   const [selectedStatus, setSelectedStatus] = useState(null);
   const [selectedCountry, setSelectedCountry] = useState(null);
@@ -52,10 +54,16 @@ function Users() {
 
   const closeAddUserModal = () => {
     setAddUserModalOpen(false);
+  }
+  const handleAddUser = (newUser) => {
+    setUsersList([...usersList, newUser]);
   } 
 
   return (
     <main>
+      {isAddUserModalOpen && (
+        <AddUserModal onClose={closeAddUserModal} onAdd={handleAddUser} />
+      )}
       <h1>USERS</h1>
       <p className="filter_title">
         Please add at least 3 departmetns to be able to proceed next steps.
@@ -102,8 +110,6 @@ function Users() {
             <button className="popupButton" onClick={openAddUserModal}>
               Add User
             </button>
-
-            {/* {isAddUserModalOpen && <AddUserModal onClose={closeAddUserModal} />} */}
           </div>
         </div>
         <div className="users-list">
@@ -124,7 +130,7 @@ function Users() {
                       <td className="tdName">{user.name}</td>
                       <td className="tdDepartment">{user.department.name}</td>
                       <td className="tdCountry">{user.country.name}</td>
-                      <td className='tdStatus'>{user.status.name}</td>
+                      <td className="tdStatus">{user.status.name}</td>
                       <td>
                         <button
                           onClick={() => handleUserDelete(user.name)}

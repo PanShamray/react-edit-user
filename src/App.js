@@ -1,6 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import EditUser from "./pages/EditUser/EditUser"
+import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
+import EditUser from "./pages/EditUser/EditUser";
 import Users from "./pages/Users/Users";
 
 import "./App.scss";
@@ -11,13 +11,19 @@ function App() {
       <div>
         <header className="header">
           <nav>
-            <Link to="/">
-              <button className="editUserButton">Edit Users</button>
-            </Link>
+            <NavLink
+              to="/"
+              className={({ isActive }) => isActive ? "activeButton" : "inactiveButton"}
+            >
+              Edit Users
+            </NavLink>
 
-            <Link to="/users">
-              <button className="usersButton">Users</button>
-            </Link>
+            <NavLink
+              to="/users"
+              className={({ isActive }) => isActive ? "activeButton" : "inactiveButton"}
+            >
+              Users
+            </NavLink>
           </nav>
         </header>
 

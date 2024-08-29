@@ -1,0 +1,110 @@
+main{
+    .wrapper{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    
+    background-color: #7D7D7D80;
+    color: black;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+        .modal{
+            background-color: white;
+            border: 1px solid black;
+            width: 720px;
+            height: 444px;
+            padding: 40px 60px;
+            display: flex;
+            flex-direction: column;
+
+            h1{
+                margin: 40px 0 60px;
+                font-family: "Karla", sans-serif;
+                font-weight: 500;
+                font-size: 24px;
+                line-height: 32px;
+                letter-spacing: 6px;
+                align-self: center;
+            }
+            .css-1dimb5e-singleValue,
+            .selectDefaultStyle,
+            .userName_input,
+            .error-message,
+            h4 {
+                font-family: "Rubik", sans-serif;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 20px;
+                letter-spacing: 0.2px;
+                color: #5e626b;
+            }
+            h4{
+                margin: 0 0 4px;
+                
+            }
+            .error-message{
+                margin: 0;
+                color: rgb(255, 0, 55);
+            }
+            .css-1dimb5e-singleValue {
+                padding: 0 10px;
+            }
+
+            .css-13cymwt-control {
+                border-radius: 0;
+                border: 1px solid #e3e8ee;
+                width: 280px;
+                padding: 4px 10px;
+            }
+
+            .css-1u9des2-indicatorSeparator {
+                width: 0;
+            }
+            .userName_input {
+                width: 240px;
+                padding: 12px 19px;
+                margin: 0;
+                border: 1px solid #e3e8ee;
+                }
+
+            .nameAndDepartment,
+            .countryAndStatus {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 20px;
+            }
+            .modal-buttons{
+                margin-top: 40px;
+                width: 100%;
+                height: 48px;
+                display: flex;
+                justify-content: flex-end;
+
+                    .cancelBtn, .addBtn{
+                        background-color: white;
+                        border: 1px solid #C4C4C4;
+                        font-family: "Rubik", sans-serif;
+                        font-weight: 300;
+                        font-size: 14px;
+                        line-height: 20px;
+                        letter-spacing: 0.2px;
+                        cursor: pointer;
+
+                    }
+                    .cancelBtn{
+                        width: 100px;
+                        margin-right: 20px;
+                    }
+                    .addBtn{
+                        width: 150px;
+                    }
+            }
+        }
+    }
+}
