@@ -7,6 +7,7 @@
 }
 
 main{
+  max-width: 1440px;
   position: relative;
   margin: 80px 100px;
   display: flex;
@@ -123,10 +124,13 @@ main{
       border: 1px solid #E3E8EE;
 
       table{
-        width: 100%;
+        width: 1000px;
+        min-width: 1000px;
+        border-collapse:unset;
 
         tr{
           height: 80px;
+          max-width: 1000px;
 
           .tdName{
             width: 235px;
@@ -143,6 +147,12 @@ main{
           .tdCountry, .tdStatus{
             @include Rubik(300);
             color:#5E626B;
+          }
+          .tdCountry{
+            width: 225px;
+          }
+          .tdStatus{
+            width: 150px;
           }
         }
       }

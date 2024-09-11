@@ -60,94 +60,96 @@ function Users() {
   } 
 
   return (
-    <main>
+    <>
       {isAddUserModalOpen && (
         <AddUserModal onClose={closeAddUserModal} onAdd={handleAddUser} />
       )}
-      <h1>USERS</h1>
-      <p className="filter_title">
-        Please add at least 3 departmetns to be able to proceed next steps.
-      </p>
-      <section>
-        <div className="filter_menu">
-          <div className="filter_items">
-            <Select
-              isMulti
-              options={departments.map((department) => ({
-                label: department.name,
-                value: department.value,
-              }))}
-              value={selectedDepartments}
-              onChange={handleDepartmentChange}
-              placeholder="Department"
-            />
-            <Select
-              options={countries.map((country) => ({
-                label: country.name,
-                value: country.value,
-              }))}
-              value={selectedCountry}
-              onChange={handleCountryChange}
-              isDisabled={!isFiltersActive}
-              placeholder="Select country"
-            />
-            <Select
-              options={statuses.map((status) => ({
-                label: status.name,
-                value: status.value,
-              }))}
-              value={selectedStatus}
-              onChange={handleStatusChange}
-              isDisabled={!isFiltersActive}
-              placeholder="All statuses"
-            />
-          </div>
+      <main>
+        <h1>USERS</h1>
+        <p className="filter_title">
+          Please add at least 3 departmetns to be able to proceed next steps.
+        </p>
+        <section>
+          <div className="filter_menu">
+            <div className="filter_items">
+              <Select
+                isMulti
+                options={departments.map((department) => ({
+                  label: department.name,
+                  value: department.value,
+                }))}
+                value={selectedDepartments}
+                onChange={handleDepartmentChange}
+                placeholder="Department"
+              />
+              <Select
+                options={countries.map((country) => ({
+                  label: country.name,
+                  value: country.value,
+                }))}
+                value={selectedCountry}
+                onChange={handleCountryChange}
+                isDisabled={!isFiltersActive}
+                placeholder="Select country"
+              />
+              <Select
+                options={statuses.map((status) => ({
+                  label: status.name,
+                  value: status.value,
+                }))}
+                value={selectedStatus}
+                onChange={handleStatusChange}
+                isDisabled={!isFiltersActive}
+                placeholder="All statuses"
+              />
+            </div>
 
-          <div className="filter_buttons">
-            <button onClick={resetFilters} className="trashButton">
-              <TrashButton />
-            </button>
-            <button className="popupButton" onClick={openAddUserModal}>
-              Add User
-            </button>
-          </div>
-        </div>
-        <div className="users-list">
-          <div className="list-titles">
-            <div className="titles">
-              <p>Full Name</p>
-              <p>Department</p>
-              <p>Country</p>
-              <p>Status</p>
+            <div className="filter_buttons">
+              <button onClick={resetFilters} className="trashButton">
+                <TrashButton />
+              </button>
+              <button className="popupButton" onClick={openAddUserModal}>
+                Add User
+              </button>
             </div>
           </div>
-          <div className="users-block">
-            <table>
-              <tbody>
-                {filteredUsers.map((user) => (
-                  <>
-                    <tr key={user.name}>
-                      <td className="tdName">{user.name}</td>
-                      <td className="tdDepartment">{user.department.name}</td>
-                      <td className="tdCountry">{user.country.name}</td>
-                      <td className="tdStatus">{user.status.name}</td>
-                      <td>
-                        <button
-                          onClick={() => handleUserDelete(user.name)}
-                          className="trashButton"
-                        >
-                          <TrashButton />
-                        </button>
-                      </td>
-                    </tr>
-                  </>
-                ))}
-              </tbody>
-            </table>
+          <div className="users-list">
+            <div className="list-titles">
+              <div className="titles">
+                <p>Full Name</p>
+                <p>Department</p>
+                <p>Country</p>
+                <p>Status</p>
+              </div>
+            </div>
+            <div className="users-block">
+              <table>
+                <tbody>
+                  {filteredUsers.map((user) => (
+                    <>
+                      <tr key={user.name}>
+                        <td className="tdName">{user.name}</td>
+                        <td className="tdDepartment">{user.department.name}</td>
+                        <td className="tdCountry">{user.country.name}</td>
+                        <td className="tdStatus">{user.status.name}</td>
+                        <td>
+                          <button
+                            onClick={() => handleUserDelete(user.name)}
+                            className="trashButton"
+                          >
+                            <TrashButton />
+                          </button>
+                        </td>
+                      </tr>
+                    </>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+    </>
   );
 }
 
