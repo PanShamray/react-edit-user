@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Select, { components } from "react-select";
 import { users, departments, statuses, countries } from "../../data.js";
 import "./style.scss";
@@ -6,14 +6,22 @@ import TrashButton from "../../components/TrashButton.jsx";
 import AddUserModal from "../../components/AddUserModal/AddUserModal.jsx";
 
 function Users() {
-  const [usersList, setUsersList] = useState(users);
+  const [usersList, setUsersList] = useState(() => {
+    const storedUsers = localStorage.getItem("users");
+    return storedUsers ? JSON.parse(storedUsers) : users;
+  });
   const [selectedDepartments, setSelectedDepartments] = useState([]);
   const [selectedStatus, setSelectedStatus] = useState(null);
   const [selectedCountry, setSelectedCountry] = useState(null);
-  const [filteredUsers, setFilteredUsers] = useState(users);
+  const [filteredUsers, setFilteredUsers] = useState(usersList);
   const [isAddUserModalOpen, setAddUserModalOpen] = useState(false);
 
   const isFiltersActive = selectedDepartments.length >= 3;
+
+  useEffect(() => {
+    localStorage.setItem("users", JSON.stringify(usersList));
+    setFilteredUsers(usersList);
+  }, [usersList]);
 
   const CheckboxOption = ({ children, ...props }) => {
     return (
@@ -43,8 +51,8 @@ function Users() {
   };
 
   const ValueContainer = ({ children, getValue, ...props }) => {
-    const selectedOptions = getValue(); // Отримуємо вибрані елементи
-    const hasValue = selectedOptions.length > 0; // Перевіряємо чи є вибрані елементи
+    const selectedOptions = getValue();
+    const hasValue = selectedOptions.length > 0;
 
     return (
       <components.ValueContainer {...props}>
@@ -82,12 +90,12 @@ function Users() {
     setSelectedDepartments([]);
     setSelectedStatus(null);
     setSelectedCountry(null);
-    setFilteredUsers(users);
+    setFilteredUsers(usersList);
   };
 
   const handleUserDelete = (userName) => {
-    const updatedUsers = filteredUsers.filter(user => user.name !== userName);
-    setFilteredUsers(updatedUsers);
+    const updatedUsers = usersList.filter(user => user.name !== userName);
+    setUsersList(updatedUsers);
   };
 
   const openAddUserModal = () => {
@@ -129,7 +137,6 @@ function Users() {
                   Option: CheckboxOption,
                   ValueContainer: (props) => <ValueContainer {...props} />
                 }}
-                
               />
               <Select
                 options={countries.map((country) => ({
@@ -149,7 +156,7 @@ function Users() {
                 value={selectedStatus}
                 onChange={handleStatusChange}
                 isDisabled={!isFiltersActive}
-                placeholder="All statuses"
+                placeholder="Select status"
               />
             </div>
 
